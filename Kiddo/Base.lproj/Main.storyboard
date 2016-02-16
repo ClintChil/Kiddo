@@ -19,10 +19,11 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6GJ-Re-Ltk">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <gestureRecognizers/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFU-jl-bAu">
                                 <rect key="frame" x="8" y="544" width="48" height="48"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.47843137250000001" green="0.92549019610000005" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Spk-q9-ZL2"/>
                                     <constraint firstAttribute="width" constant="48" id="tL3-OV-eJJ"/>
@@ -32,7 +33,7 @@
                                     <action selector="onLocateMeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Cd-8J-88W"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fp5-2J-1Ky">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fp5-2J-1Ky">
                                 <rect key="frame" x="544" y="544" width="48" height="48"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -71,19 +72,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="x5d-7Y-t2P">
                         <nil key="title"/>
-                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" id="PiE-9Y-qSB">
-                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" id="PiE-9Y-qSB">
+                            <rect key="frame" x="115.5" y="7" width="369" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="search"/>
+                            <connections>
+                                <outlet property="delegate" destination="BYZ-38-t0r" id="aOz-mq-ho7"/>
+                            </connections>
                         </textField>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="GOt-nz-9qi">
-                            <color key="tintColor" red="0.0" green="0.66274509800000003" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="locateMeButton" destination="dFU-jl-bAu" id="bUJ-JC-qnc"/>
                         <outlet property="mapView" destination="6GJ-Re-Ltk" id="SXj-nu-Hbz"/>
+                        <outlet property="searchTextField" destination="PiE-9Y-qSB" id="sOU-Lw-YfN"/>
                         <segue destination="vGe-Iv-BlH" kind="popoverPresentation" identifier="DetailViewSegue" popoverAnchorView="6GJ-Re-Ltk" id="vKu-AM-YtO">
                             <popoverArrowDirection key="popoverArrowDirection" left="YES"/>
                         </segue>

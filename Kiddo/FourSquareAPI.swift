@@ -29,12 +29,6 @@ struct FourSquareAPI {
     private static let clientSecret = "KON3QATMIHYOYZXI4IJPGCIZUVQACVSLH0S3RZYPIJYID5OX"
     private static let versionOfAPI = "20160215"
     
-    private static let dateFormatter: NSDateFormatter = {
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        return formatter
-    }()
-    
     private static func fourSquareURL(method method: Method, parameters: [String:String]?) -> NSURL {
         
         // FIXME: change this to use NSURLComponents host & path, not string concatenation

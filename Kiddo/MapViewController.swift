@@ -10,13 +10,15 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITextFieldDelegate {
     
     var store: VenueStore!
     let locationManager = CLLocationManager()
     
-    @IBOutlet var locateMeButton: UIButton!
-    @IBOutlet var mapView: MKMapView!
+    @IBOutlet private var locateMeButton: UIButton!
+    @IBOutlet private var mapView: MKMapView!
+    @IBOutlet var searchTextField: UITextField!
+    
     
     // MARK: - UIViewController
     
@@ -33,22 +35,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.delegate = self
         customizeMapView()
         
-//        // Load results for Pizza on load
-//        loadSearchResults("Pizza")
-        
+        // add gesture recognizer to dismiss keyboard
+        let tapGesture = UITapGestureRecognizer(target: self, action: "handleTap:")
+        mapView.addGestureRecognizer(tapGesture)
         
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
-        
-        centerMapOnUser(animated: false)
+    func handleTap(tapGesture: UITapGestureRecognizer) {
+        searchTextField.resignFirstResponder()
     }
     
     // MARK: - IBActions
     
     @IBAction func onLocateMeButtonPressed(sender: UIButton) {
-        centerMapOnUser()
+        mapView.setUserTrackingMode(.Follow, animated: true)
     }
     
     @IBAction func onReloadSearchButtonPressed(sender: UIButton) {
@@ -66,8 +66,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     // MARK: - MapView
     
-    
-    func customizeMapView() {
+    private func customizeMapView() {
         
         mapView.showsUserLocation = true
         mapView.showsCompass = true
@@ -75,9 +74,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     // Show map scale while zooming map
-    // FIXME: disable scale on pan map
     func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-
+        // FIXME: disable scale on pan map
         mapView.showsScale = true
     }
     
@@ -87,26 +85,60 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+
+        if  let annotation = annotation as? Venue {
+            let identifier = "pin"
+            let view: MKPinAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MKPinAnnotationView {
+                dequeuedView.annotation = annotation
+                view = dequeuedView
+            } else {
+                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            }
+            view.canShowCallout = true
+            // FIXME: make an extension on UIColor for key colors
+            view.pinTintColor = UIColor.init(red: 0.0/255.0, green: 169.0/255.0, blue: 120.0/255.0, alpha: 255.0/255.0)
+            
+            let button = UIButton(type: .InfoLight)
+            button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+            view.rightCalloutAccessoryView = button
+            
+            return view
+        }
         
-        if annotation.isKindOfClass(MKUserLocation) { return nil }
-        
-        let annotationView = MKPinAnnotationView()
-        annotationView.pinTintColor = UIColor.init(red: 0.0/255.0, green: 169.0/255.0, blue: 120.0/255.0, alpha: 255.0/255.0)
-        return annotationView
+        return nil
     }
     
     
-    // MARK: - Helper Methods
-    
-    func centerMapOnUser(animated animated: Bool = true) {
-        if let userLocation = locationManager.location?.coordinate {
-            mapView.setRegion(MKCoordinateRegionMake(userLocation, MKCoordinateSpanMake(0.02, 0.02)), animated: animated)
+    // FIXME: add segue to detailview
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if let venue = view.annotation as? Venue {
+            print(venue.name)
         }
     }
     
-    func loadSearchResults(query: String) {
+    // MARK: - Text Field
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        if let searchText = textField.text {
+            if searchText != "" {
+                loadSearchResults(searchText)
+            }
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         
-        store.fetchNearbyVenues(coordinate: mapView.userLocation.coordinate, query: query) { (venuesResult) -> Void in
+        textField.resignFirstResponder()
+
+        return true
+    }
+    
+    // MARK: - Helper Methods
+    
+    private func loadSearchResults(query: String) {
+        
+        store.fetchNearbyVenues(coordinate: mapView.region.center, query: query) { (venuesResult) -> Void in
             NSOperationQueue.mainQueue().addOperationWithBlock {
                 switch venuesResult {
                     
@@ -121,13 +153,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 
                 // add annotations to map
                 self.mapView.removeAnnotations(self.mapView.annotations)
-                self.mapView.showAnnotations(self.store.venues, animated: true)
-                
+                self.mapView.addAnnotations(self.store.venues)
             }
-            
         }
-
-        
     }
     
     

@@ -6,7 +6,6 @@
 //  Copyright © 2016 Clint Chilcott. All rights reserved.
 //
 
-import UIKit
 import MapKit
 
 enum ImageResult {
