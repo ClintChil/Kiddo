@@ -1,5 +1,5 @@
 //
-//  Spot.swift
+//  Venue.swift
 //  Kiddo
 //
 //  Created by Clint Chilcott on 2/11/16.
@@ -9,14 +9,17 @@
 import UIKit
 import MapKit
 
-class Spot: NSObject, MKAnnotation {
+class Venue: NSObject, MKAnnotation {
     
+    let id: String
     let name: String
     let coordinate: CLLocationCoordinate2D
     var title: String? { return name }
-    var subtitle: String? { return name }
+//    var subtitle: String? { return name }
     
-    init(name: String, coordinate: CLLocationCoordinate2D) {
+    
+    init(id: String, name: String, coordinate: CLLocationCoordinate2D) {
+        self.id = id
         self.name = name
         self.coordinate = coordinate
     }

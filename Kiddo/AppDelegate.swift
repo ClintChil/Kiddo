@@ -16,10 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-        let spotStore = SpotStore()
+        let venueStore = VenueStore()
         
-        let mapViewController = window!.rootViewController as! MapViewController
-        mapViewController.spotStore = spotStore
+        let navContoller = window!.rootViewController as! UINavigationController
+        let mapViewController = navContoller.topViewController as! MapViewController
+        mapViewController.store = venueStore
         
         return true
     }
