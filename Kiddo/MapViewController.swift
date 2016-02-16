@@ -10,8 +10,10 @@ import UIKit
 import MapKit
 import CoreLocation
 
+//RF: Should probably add in the UITextFieldDelegate method of shouldReturn(), currently tapping Search doesn't do anything
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
+    //RF: I typically make all outlets private, goes along with encapsulation, as well as any variables(properties) that I do not want other classes to access.
     var store: VenueStore!
     let locationManager = CLLocationManager()
     
@@ -33,8 +35,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.delegate = self
         customizeMapView()
         
-//        // Load results for Pizza on load
-//        loadSearchResults("Pizza")
+        //        // Load results for Pizza on load
+        loadSearchResults("Pizza")
         
         
     }
@@ -77,12 +79,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // Show map scale while zooming map
     // FIXME: disable scale on pan map
     func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-
+        
         mapView.showsScale = true
     }
     
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-    
+        
         mapView.showsScale = false
     }
     
@@ -91,6 +93,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if annotation.isKindOfClass(MKUserLocation) { return nil }
         
         let annotationView = MKPinAnnotationView()
+        //RF: I like to put my custom colors into a UIColor extension.
         annotationView.pinTintColor = UIColor.init(red: 0.0/255.0, green: 169.0/255.0, blue: 120.0/255.0, alpha: 255.0/255.0)
         return annotationView
     }
@@ -98,6 +101,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     // MARK: - Helper Methods
     
+    //RF: If these are only used here I would make them private.
     func centerMapOnUser(animated animated: Bool = true) {
         if let userLocation = locationManager.location?.coordinate {
             mapView.setRegion(MKCoordinateRegionMake(userLocation, MKCoordinateSpanMake(0.02, 0.02)), animated: animated)
@@ -126,7 +130,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
             
         }
-
+        
         
     }
     
