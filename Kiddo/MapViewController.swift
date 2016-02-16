@@ -86,6 +86,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.showsScale = false
     }
     
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if annotation.isKindOfClass(MKUserLocation) { return nil }
+        
+        let annotationView = MKPinAnnotationView()
+        annotationView.pinTintColor = UIColor.init(red: 0.0/255.0, green: 169.0/255.0, blue: 120.0/255.0, alpha: 255.0/255.0)
+        return annotationView
+    }
+    
     
     // MARK: - Helper Methods
     
@@ -111,8 +120,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 }
                 
                 // add annotations to map
-                self.mapView.addAnnotations(self.store.venues)
-                self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+                self.mapView.removeAnnotations(self.mapView.annotations)
+                self.mapView.showAnnotations(self.store.venues, animated: true)
+                
             }
             
         }

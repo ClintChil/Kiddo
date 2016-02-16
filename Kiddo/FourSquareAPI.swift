@@ -63,11 +63,6 @@ struct FourSquareAPI {
         return components.URL!
     }
     
-//    static func recentVenuesURL() -> NSURL {
-//    // FIXME: make this dynamic, accept location and query
-//        return fourSquareURL(method: .SearchVenues, parameters: ["ll": "37.74447646461217,-122.42083299916463", "query": "pizza"])
-//    }
-    
     static func searchVenuesURL(coordinate: CLLocationCoordinate2D, query: String) -> NSURL {
         let coordinateString = "\(coordinate.latitude),\(coordinate.longitude)"
         return fourSquareURL(method: .SearchVenues, parameters: ["ll": coordinateString, "query": query])

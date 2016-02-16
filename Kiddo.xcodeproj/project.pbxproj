@@ -32,7 +32,6 @@
 		BA48DF611C6D753100215F22 /* VenueStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueStore.swift; sourceTree = "<group>"; };
 		BA9222151C6EA37B006E34B3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BA9222181C6EBC88006E34B3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		BA9222231C726254006E34B3 /* PrivateKeys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PrivateKeys.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +74,6 @@
 				BA48DF4C1C6D718900215F22 /* Assets.xcassets */,
 				BA48DF4E1C6D718900215F22 /* LaunchScreen.storyboard */,
 				BA48DF511C6D718900215F22 /* Info.plist */,
-				BA9222231C726254006E34B3 /* PrivateKeys.xcconfig */,
 			);
 			path = Kiddo;
 			sourceTree = "<group>";

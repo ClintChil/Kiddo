@@ -27,18 +27,6 @@ class VenueStore {
         return NSURLSession(configuration: config)
     }()
     
-//    func fetchRecentVenues(completion completion: (VenuesResult) -> Void) {
-//        let url = FourSquareAPI.recentVenuesURL()
-//        let request = NSURLRequest(URL: url)
-//        let task = session.dataTaskWithRequest(request) {
-//            (data, response, error) -> Void in
-//            
-//            let result = self.processRecentVenuesRequest(data: data, error: error)
-//            completion(result)
-//        }
-//        task.resume()
-//    }
-    
     func fetchNearbyVenues(coordinate coordinate: CLLocationCoordinate2D, query: String, completion: (VenuesResult) -> Void) {
         let url = FourSquareAPI.searchVenuesURL(coordinate, query: query)
         let request = NSURLRequest(URL: url)
