@@ -6,7 +6,7 @@
 //  Copyright © 2016 Clint Chilcott. All rights reserved.
 //
 
-import UIKit
+import UIKit //RF: I don't think you need UIKit imported here.
 import MapKit
 
 enum ImageResult {
@@ -18,6 +18,7 @@ enum VenueError: ErrorType {
     case ImageCreationError
 }
 
+//RF: Not sure I entirely understand the purpose of this class, I would just add the calls to a ServiceManager class, and then return the arrays like you are, then use an array in your VC in order to do stuff with the data, vs using this class, then init it in the AppDelegate, and then adding the Venue objects to this array in the ViewController calling these methods.
 class VenueStore {
     
     var venues = [Venue]()
