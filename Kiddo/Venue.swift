@@ -1,5 +1,5 @@
 import MapKit
-// ☹️ Forced to import MapKit & Inherit from NSObject because MapKit
+// Forced to import MapKit & Inherit from NSObject because MKAnnotation ☹️
 
 class Venue: NSObject, MKAnnotation {
     let id: String

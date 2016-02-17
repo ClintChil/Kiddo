@@ -16,7 +16,7 @@ enum FourSquareError: ErrorType {
 }
 
 struct FourSquareAPI {
-    
+    // 🔑 intentionally left in repo for ease of use & demonstration purposes
     private static let baseURLString = "https://api.foursquare.com/v2/"
     private static let clientID = "KC1V3HJV3AORNIIH4VXQM42NA4WYZOLAA5GXVZSJIGRCUN1Q"
     private static let clientSecret = "KON3QATMIHYOYZXI4IJPGCIZUVQACVSLH0S3RZYPIJYID5OX"
@@ -46,7 +46,6 @@ struct FourSquareAPI {
             }
         }
         components.queryItems = queryItems
-        
         return components.URL!
     }
     
@@ -98,6 +97,5 @@ struct FourSquareAPI {
                 return nil
         }
         return Venue(id: id, name: name, coordinate: CLLocationCoordinate2DMake(lat, long))
-    }
-    
+    }   
 }

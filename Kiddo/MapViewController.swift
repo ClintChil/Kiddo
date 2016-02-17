@@ -64,7 +64,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     // Show map scale while zooming map
     func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-        // FIXME: disable scale on pan map
+    // FIXME: disable scale on pan map
         mapView.showsScale = true
     }
     
@@ -127,7 +127,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     private func loadSearchResults(query: String) {
         
-        store.fetchNearbyVenues(coordinate: mapView.region.center, query: query) { (venuesResult) -> Void in
+        store.fetchNearbyVenues(lat: mapView.region.center.latitude, long: mapView.region.center.longitude, query: query) { (venuesResult) -> Void in
             NSOperationQueue.mainQueue().addOperationWithBlock {
                 switch venuesResult {
                     

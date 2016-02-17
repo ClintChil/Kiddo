@@ -11,7 +11,7 @@ class VenueStore {
         return NSURLSession(configuration: config)
     }()
     
-    func fetchNearbyVenues(lat: Double, long: Double, query: String, completion: (VenuesResult) -> Void) {
+    func fetchNearbyVenues(lat lat: Double, long: Double, query: String, completion: (VenuesResult) -> Void) {
         let url = FourSquareAPI.searchVenuesURL(lat: lat, long: long, query: query)
         let request = NSURLRequest(URL: url)
         let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
@@ -28,7 +28,5 @@ class VenueStore {
         }
         return FourSquareAPI.venuesFromJSONData(jsonData)
     }
-    
-    
     
 }
