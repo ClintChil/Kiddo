@@ -1,9 +1,4 @@
-import MapKit
-
-enum ImageResult {
-    case Success(UIImage)
-    case Failure(ErrorType)
-}
+import Foundation
 
 enum VenueError: ErrorType {
     case ImageCreationError
@@ -16,11 +11,10 @@ class VenueStore {
         return NSURLSession(configuration: config)
     }()
     
-    func fetchNearbyVenues(coordinate coordinate: CLLocationCoordinate2D, query: String, completion: (VenuesResult) -> Void) {
-        let url = FourSquareAPI.searchVenuesURL(coordinate, query: query)
+    func fetchNearbyVenues(lat: Double, long: Double, query: String, completion: (VenuesResult) -> Void) {
+        let url = FourSquareAPI.searchVenuesURL(lat: lat, long: long, query: query)
         let request = NSURLRequest(URL: url)
-        let task = session.dataTaskWithRequest(request) {
-            (data, response, error) -> Void in
+        let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
             
             let result = self.processRecentVenuesRequest(data: data, error: error)
             completion(result)
@@ -32,7 +26,6 @@ class VenueStore {
         guard let jsonData = data else {
             return .Failure(error!)
         }
-        
         return FourSquareAPI.venuesFromJSONData(jsonData)
     }
     

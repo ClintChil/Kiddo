@@ -12,7 +12,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet private var mapView: MKMapView!
     @IBOutlet var searchTextField: UITextField!
     
-    
     // MARK: - UIViewController
     
     override func viewDidLoad() {
@@ -31,7 +30,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // add gesture recognizer to dismiss keyboard
         let tapGesture = UITapGestureRecognizer(target: self, action: "handleTap:")
         mapView.addGestureRecognizer(tapGesture)
-        
     }
     
     func handleTap(tapGesture: UITapGestureRecognizer) {
@@ -52,15 +50,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .AuthorizedWhenInUse || status == .AuthorizedAlways {
-            manager.startUpdatingLocation()
-            
+            manager.startUpdatingLocation()   
         }
     }
     
     // MARK: - MapView
     
     private func customizeMapView() {
-        
         mapView.showsUserLocation = true
         mapView.showsCompass = true
         mapView.showsPointsOfInterest = false
@@ -98,7 +94,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             return view
         }
-        
+
         return nil
     }
     

@@ -1,5 +1,6 @@
-import Foundation
 import MapKit
+
+typealias JSONDictionary = [String: AnyObject]
 
 enum Method: String {
     case SearchVenues = "venues/search"
@@ -49,8 +50,8 @@ struct FourSquareAPI {
         return components.URL!
     }
     
-    static func searchVenuesURL(coordinate: CLLocationCoordinate2D, query: String) -> NSURL {
-        let coordinateString = "\(coordinate.latitude),\(coordinate.longitude)"
+    static func searchVenuesURL(lat lat: Double, long: Double, query: String) -> NSURL {
+        let coordinateString = "\(lat),\(long)"
         return fourSquareURL(method: .SearchVenues, parameters: ["ll": coordinateString, "query": query])
     }
     
@@ -58,9 +59,9 @@ struct FourSquareAPI {
         do {
             let jsonObject: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: [])
             guard let
-                jsonDictionary = jsonObject as? [NSObject:AnyObject],
-                venues = jsonDictionary["response"] as? [String:AnyObject],
-                venuesArray = venues["venues"] as? [[String:AnyObject]] else {
+                jsonDictionary = jsonObject as? JSONDictionary,
+                venues = jsonDictionary["response"] as? JSONDictionary,
+                venuesArray = venues["venues"] as? [JSONDictionary] else {
                     
                     // The JSON structure doesn't match our expectations
                     return .Failure(FourSquareError.InvalidJSONData)
@@ -77,28 +78,25 @@ struct FourSquareAPI {
                 // We weren't able to parse any of the venues
                 return .Failure(FourSquareError.InvalidJSONData)
             }
-            
-            
             return .Success(finalVenues)
         }
+        // FIXME: throw error instead?
         catch let error {
             return .Failure(error)
         }
     }
     
-    private static func venueFromJSONObject(json: [String : AnyObject]) -> Venue? {
+    private static func venueFromJSONObject(json: JSONDictionary) -> Venue? {
         guard let
             id = json["id"] as? String,
             name = json["name"] as? String,
-            locationDict = json["location"] as? NSDictionary,
+            locationDict = json["location"] as? JSONDictionary,
             lat = locationDict["lat"] as? Double,
-            long = locationDict["lng"] as? Double
-            else {
+            long = locationDict["lng"] as? Double else {
                 
                 // Don't have enough information to construct a Venue
                 return nil
         }
-    
         return Venue(id: id, name: name, coordinate: CLLocationCoordinate2DMake(lat, long))
     }
     
