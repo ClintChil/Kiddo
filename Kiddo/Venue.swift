@@ -1,13 +1,6 @@
-//
-//  Venue.swift
-//  Kiddo
-//
-//  Created by Clint Chilcott on 2/11/16.
-//  Copyright © 2016 Clint Chilcott. All rights reserved.
-//
-
-import UIKit
 import MapKit
+
+// ☹️ Forced to import MapKit & Inherit from NSObject because MapKit
 
 class Venue: NSObject, MKAnnotation {
     
