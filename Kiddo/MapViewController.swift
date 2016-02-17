@@ -13,6 +13,7 @@ import CoreLocation
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITextFieldDelegate {
     
     var store: VenueStore!
+    var venues = [Venue]()
     let locationManager = CLLocationManager()
     
     @IBOutlet private var locateMeButton: UIButton!
@@ -144,7 +145,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                     
                 case let .Success(venues):
                     print("Successfullly found \(venues.count) venues.")
-                    self.store.venues = venues
+                    self.venues = venues
                     
                 case let .Failure(error):
                     print("Error fetching venues: \(error)")
@@ -153,7 +154,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 
                 // add annotations to map
                 self.mapView.removeAnnotations(self.mapView.annotations)
-                self.mapView.addAnnotations(self.store.venues)
+                self.mapView.addAnnotations(self.venues)
             }
         }
     }

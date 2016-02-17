@@ -19,8 +19,6 @@ enum VenueError: ErrorType {
 
 class VenueStore {
     
-    var venues = [Venue]()
-    
     let session: NSURLSession = {
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         return NSURLSession(configuration: config)

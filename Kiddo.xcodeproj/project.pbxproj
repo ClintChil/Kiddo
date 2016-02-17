@@ -12,11 +12,12 @@
 		BA48DF4D1C6D718900215F22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA48DF4C1C6D718900215F22 /* Assets.xcassets */; };
 		BA48DF501C6D718900215F22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA48DF4E1C6D718900215F22 /* LaunchScreen.storyboard */; };
 		BA48DF581C6D721900215F22 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48DF571C6D721900215F22 /* MapViewController.swift */; };
-		BA48DF5D1C6D744200215F22 /* FourSquareAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48DF5C1C6D744200215F22 /* FourSquareAPI.swift */; };
+		BA48DF5D1C6D744200215F22 /* FoursquareAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48DF5C1C6D744200215F22 /* FoursquareAPI.swift */; };
 		BA48DF601C6D74F900215F22 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48DF5F1C6D74F900215F22 /* Venue.swift */; };
 		BA48DF621C6D753100215F22 /* VenueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48DF611C6D753100215F22 /* VenueStore.swift */; };
 		BA9222161C6EA37B006E34B3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9222151C6EA37B006E34B3 /* MapKit.framework */; };
 		BA9222191C6EBC88006E34B3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9222181C6EBC88006E34B3 /* CoreLocation.framework */; };
+		BAC2414E1C73DC04001B8DED /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC2414D1C73DC04001B8DED /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,11 +28,12 @@
 		BA48DF4F1C6D718900215F22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA48DF511C6D718900215F22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA48DF571C6D721900215F22 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		BA48DF5C1C6D744200215F22 /* FourSquareAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourSquareAPI.swift; sourceTree = "<group>"; };
+		BA48DF5C1C6D744200215F22 /* FoursquareAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoursquareAPI.swift; sourceTree = "<group>"; };
 		BA48DF5F1C6D74F900215F22 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		BA48DF611C6D753100215F22 /* VenueStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueStore.swift; sourceTree = "<group>"; };
 		BA9222151C6EA37B006E34B3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BA9222181C6EBC88006E34B3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BAC2414D1C73DC04001B8DED /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				BA48DF571C6D721900215F22 /* MapViewController.swift */,
+				BAC2414D1C73DC04001B8DED /* DetailViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -89,7 +92,7 @@
 		BA48DF5E1C6D744B00215F22 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BA48DF5C1C6D744200215F22 /* FourSquareAPI.swift */,
+				BA48DF5C1C6D744200215F22 /* FoursquareAPI.swift */,
 				BA48DF611C6D753100215F22 /* VenueStore.swift */,
 				BA48DF5F1C6D74F900215F22 /* Venue.swift */,
 			);
@@ -176,9 +179,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA48DF5D1C6D744200215F22 /* FourSquareAPI.swift in Sources */,
+				BA48DF5D1C6D744200215F22 /* FoursquareAPI.swift in Sources */,
 				BA48DF581C6D721900215F22 /* MapViewController.swift in Sources */,
 				BA48DF461C6D718900215F22 /* AppDelegate.swift in Sources */,
+				BAC2414E1C73DC04001B8DED /* DetailViewController.swift in Sources */,
 				BA48DF621C6D753100215F22 /* VenueStore.swift in Sources */,
 				BA48DF601C6D74F900215F22 /* Venue.swift in Sources */,
 			);
