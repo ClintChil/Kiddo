@@ -7,9 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA2725EC1C752C890096ACBE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2725EB1C752C890096ACBE /* MapViewController.swift */; };
+		BA2725EE1C752C890096ACBE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2725ED1C752C890096ACBE /* SearchViewController.swift */; };
+		BA2725F11C752C890096ACBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA2725EF1C752C890096ACBE /* Main.storyboard */; };
+		BA2725F31C752C890096ACBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA2725F21C752C890096ACBE /* Assets.xcassets */; };
+		BA2726001C7533BB0096ACBE /* MainAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA2725FF1C7533BB0096ACBE /* MainAssets.xcassets */; };
+		BA2726011C7533BB0096ACBE /* MainAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA2725FF1C7533BB0096ACBE /* MainAssets.xcassets */; };
+		BA2726021C7533DC0096ACBE /* FoursquareAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48DF5C1C6D744200215F22 /* FoursquareAPI.swift */; };
+		BA2726031C7533DF0096ACBE /* VenueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48DF611C6D753100215F22 /* VenueStore.swift */; };
+		BA2726041C7533E40096ACBE /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48DF5F1C6D74F900215F22 /* Venue.swift */; };
+		BA2726061C75353D0096ACBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2726051C75353D0096ACBE /* AppDelegate.swift */; };
+		BA2726071C7535BA0096ACBE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9222181C6EBC88006E34B3 /* CoreLocation.framework */; };
+		BA2726081C7535BA0096ACBE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9222151C6EA37B006E34B3 /* MapKit.framework */; };
 		BA48DF461C6D718900215F22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48DF451C6D718900215F22 /* AppDelegate.swift */; };
 		BA48DF4B1C6D718900215F22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA48DF491C6D718900215F22 /* Main.storyboard */; };
-		BA48DF4D1C6D718900215F22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA48DF4C1C6D718900215F22 /* Assets.xcassets */; };
 		BA48DF501C6D718900215F22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA48DF4E1C6D718900215F22 /* LaunchScreen.storyboard */; };
 		BA48DF581C6D721900215F22 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48DF571C6D721900215F22 /* MapViewController.swift */; };
 		BA48DF5D1C6D744200215F22 /* FoursquareAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48DF5C1C6D744200215F22 /* FoursquareAPI.swift */; };
@@ -21,10 +32,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA2725E71C752C890096ACBE /* Kiddo tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kiddo tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA2725EB1C752C890096ACBE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		BA2725ED1C752C890096ACBE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BA2725F01C752C890096ACBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BA2725F21C752C890096ACBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BA2725F41C752C890096ACBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA2725FF1C7533BB0096ACBE /* MainAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = MainAssets.xcassets; path = Kiddo/MainAssets.xcassets; sourceTree = "<group>"; };
+		BA2726051C75353D0096ACBE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA48DF421C6D718900215F22 /* Kiddo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiddo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA48DF451C6D718900215F22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA48DF4A1C6D718900215F22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BA48DF4C1C6D718900215F22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA48DF4F1C6D718900215F22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA48DF511C6D718900215F22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA48DF571C6D721900215F22 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +55,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BA2725E41C752C890096ACBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA2726081C7535BA0096ACBE /* MapKit.framework in Frameworks */,
+				BA2726071C7535BA0096ACBE /* CoreLocation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BA48DF3F1C6D718900215F22 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -49,10 +76,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA2725E81C752C890096ACBE /* Kiddo tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				BA2726051C75353D0096ACBE /* AppDelegate.swift */,
+				BA2725EF1C752C890096ACBE /* Main.storyboard */,
+				BA2725F81C752E090096ACBE /* View Controllers */,
+				BA2725F21C752C890096ACBE /* Assets.xcassets */,
+				BA2725F41C752C890096ACBE /* Info.plist */,
+			);
+			path = "Kiddo tvOS";
+			sourceTree = "<group>";
+		};
+		BA2725F81C752E090096ACBE /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BA2725EB1C752C890096ACBE /* MapViewController.swift */,
+				BA2725ED1C752C890096ACBE /* SearchViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		BA2725FD1C75326C0096ACBE /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				BA2725FF1C7533BB0096ACBE /* MainAssets.xcassets */,
+				BA48DF5E1C6D744B00215F22 /* Model */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
 		BA48DF391C6D718900215F22 = {
 			isa = PBXGroup;
 			children = (
-				BA48DF441C6D718900215F22 /* Kiddo */,
+				BA2725FD1C75326C0096ACBE /* Shared */,
+				BA48DF441C6D718900215F22 /* Kiddo iOS */,
+				BA2725E81C752C890096ACBE /* Kiddo tvOS */,
 				BA48DF431C6D718900215F22 /* Products */,
 				BA9222171C6EA388006E34B3 /* Frameworks */,
 			);
@@ -62,21 +121,21 @@
 			isa = PBXGroup;
 			children = (
 				BA48DF421C6D718900215F22 /* Kiddo.app */,
+				BA2725E71C752C890096ACBE /* Kiddo tvOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BA48DF441C6D718900215F22 /* Kiddo */ = {
+		BA48DF441C6D718900215F22 /* Kiddo iOS */ = {
 			isa = PBXGroup;
 			children = (
 				BA48DF451C6D718900215F22 /* AppDelegate.swift */,
 				BA48DF491C6D718900215F22 /* Main.storyboard */,
-				BA48DF5E1C6D744B00215F22 /* Model */,
 				BA48DF5B1C6D741C00215F22 /* View Controllers */,
-				BA48DF4C1C6D718900215F22 /* Assets.xcassets */,
 				BA48DF4E1C6D718900215F22 /* LaunchScreen.storyboard */,
 				BA48DF511C6D718900215F22 /* Info.plist */,
 			);
+			name = "Kiddo iOS";
 			path = Kiddo;
 			sourceTree = "<group>";
 		};
@@ -97,6 +156,7 @@
 				BA48DF5F1C6D74F900215F22 /* Venue.swift */,
 			);
 			name = Model;
+			path = Kiddo;
 			sourceTree = "<group>";
 		};
 		BA9222171C6EA388006E34B3 /* Frameworks */ = {
@@ -111,6 +171,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BA2725E61C752C890096ACBE /* Kiddo tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA2725F71C752C890096ACBE /* Build configuration list for PBXNativeTarget "Kiddo tvOS" */;
+			buildPhases = (
+				BA2725E31C752C890096ACBE /* Sources */,
+				BA2725E41C752C890096ACBE /* Frameworks */,
+				BA2725E51C752C890096ACBE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Kiddo tvOS";
+			productName = "Kiddo tvOS";
+			productReference = BA2725E71C752C890096ACBE /* Kiddo tvOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		BA48DF411C6D718900215F22 /* Kiddo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA48DF541C6D718900215F22 /* Build configuration list for PBXNativeTarget "Kiddo" */;
@@ -138,6 +215,9 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Clint Chilcott";
 				TargetAttributes = {
+					BA2725E61C752C890096ACBE = {
+						CreatedOnToolsVersion = 7.3;
+					};
 					BA48DF411C6D718900215F22 = {
 						CreatedOnToolsVersion = 7.3;
 					};
@@ -157,17 +237,28 @@
 			projectRoot = "";
 			targets = (
 				BA48DF411C6D718900215F22 /* Kiddo */,
+				BA2725E61C752C890096ACBE /* Kiddo tvOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BA2725E51C752C890096ACBE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA2725F31C752C890096ACBE /* Assets.xcassets in Resources */,
+				BA2726011C7533BB0096ACBE /* MainAssets.xcassets in Resources */,
+				BA2725F11C752C890096ACBE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BA48DF401C6D718900215F22 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BA48DF501C6D718900215F22 /* LaunchScreen.storyboard in Resources */,
-				BA48DF4D1C6D718900215F22 /* Assets.xcassets in Resources */,
+				BA2726001C7533BB0096ACBE /* MainAssets.xcassets in Resources */,
 				BA48DF4B1C6D718900215F22 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,6 +266,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BA2725E31C752C890096ACBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA2726061C75353D0096ACBE /* AppDelegate.swift in Sources */,
+				BA2726041C7533E40096ACBE /* Venue.swift in Sources */,
+				BA2726021C7533DC0096ACBE /* FoursquareAPI.swift in Sources */,
+				BA2725EE1C752C890096ACBE /* SearchViewController.swift in Sources */,
+				BA2725EC1C752C890096ACBE /* MapViewController.swift in Sources */,
+				BA2726031C7533DF0096ACBE /* VenueStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BA48DF3E1C6D718900215F22 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -191,6 +295,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		BA2725EF1C752C890096ACBE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA2725F01C752C890096ACBE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		BA48DF491C6D718900215F22 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -210,6 +322,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		BA2725F51C752C890096ACBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = "Kiddo tvOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.crisafisoft.Kiddo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		BA2725F61C752C890096ACBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = "Kiddo tvOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.crisafisoft.Kiddo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Release;
+		};
 		BA48DF521C6D718900215F22 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -322,6 +464,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BA2725F71C752C890096ACBE /* Build configuration list for PBXNativeTarget "Kiddo tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA2725F51C752C890096ACBE /* Debug */,
+				BA2725F61C752C890096ACBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		BA48DF3D1C6D718900215F22 /* Build configuration list for PBXProject "Kiddo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
