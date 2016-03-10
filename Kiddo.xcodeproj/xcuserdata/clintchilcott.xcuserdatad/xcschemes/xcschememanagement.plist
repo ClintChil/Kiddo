@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Kiddo tvOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Kiddo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>BA2725E61C752C890096ACBE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BA48DF411C6D718900215F22</key>
 		<dict>
 			<key>primary</key>

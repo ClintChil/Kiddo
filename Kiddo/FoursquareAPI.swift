@@ -89,6 +89,8 @@ struct FourSquareAPI {
         guard let
             id = json["id"] as? String,
             name = json["name"] as? String,
+            contact = json["contact"] as? JSONDictionary,
+            formattedPhone = contact["formattedPhone"] as? String,
             locationDict = json["location"] as? JSONDictionary,
             lat = locationDict["lat"] as? Double,
             long = locationDict["lng"] as? Double else {
@@ -96,6 +98,6 @@ struct FourSquareAPI {
                 // Don't have enough information to construct a Venue
                 return nil
         }
-        return Venue(id: id, name: name, coordinate: CLLocationCoordinate2DMake(lat, long))
+        return Venue(id: id, name: name, phone: formattedPhone, coordinate: CLLocationCoordinate2DMake(lat, long))
     }   
 }
