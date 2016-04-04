@@ -4,6 +4,7 @@ typealias JSONDictionary = [String: AnyObject]
 
 enum Method: String {
     case SearchVenues = "venues/search"
+    case ExploreVenues = "venues/explore"
 }
 
 enum VenuesResult {
@@ -52,6 +53,11 @@ struct FourSquareAPI {
     static func searchVenuesURL(lat lat: Double, long: Double, query: String) -> NSURL {
         let coordinateString = "\(lat),\(long)"
         return fourSquareURL(method: .SearchVenues, parameters: ["ll": coordinateString, "query": query])
+    }
+    
+    static func exploreVenuesURL(lat lat: Double, long: Double, query: String) -> NSURL {
+        let coordinateString = "\(lat),\(long)"
+        return fourSquareURL(method: .ExploreVenues, parameters: ["ll": coordinateString, "section": query, "openNow": "1", "sortByDistance": "1"])
     }
     
     static func venuesFromJSONData(data: NSData) -> VenuesResult {

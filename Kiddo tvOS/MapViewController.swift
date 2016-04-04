@@ -24,26 +24,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
         }
         
-        
         // configure mapView
         mapView.delegate = self
         customizeMapView()
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print(error)
+    override func viewDidAppear(animated: Bool) {
+        loadSearchResults("pizza")
     }
     
-//    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-//        if status == .AuthorizedWhenInUse || status == .AuthorizedAlways {
-//            manager.requestLocation()
-//        }
-//    }
-    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(locations)
-        mapView.userTrackingMode = .Follow
-        loadSearchResults("pizza")
+        print("didUpdateLocations")
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print(error)
     }
 
     private func customizeMapView() {
@@ -51,9 +46,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.showsPointsOfInterest = false
     }
     
+    private func updateAnnotations() {
+        // add annotations to map
+        self.mapView.removeAnnotations(self.mapView.annotations)
+        self.mapView.addAnnotations(self.venues)
+    }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        
         if  let annotation = annotation as? Venue {
             let identifier = "pin"
             let view: MKPinAnnotationView
@@ -73,12 +72,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             return view
         }
-        
         return nil
     }
     
     private func loadSearchResults(query: String) {
-        
         store.fetchNearbyVenues(lat: (locationManager.location?.coordinate.latitude)!, long: (locationManager.location?.coordinate.longitude)!, query: query) { (venuesResult) -> Void in
             NSOperationQueue.mainQueue().addOperationWithBlock {
                 switch venuesResult {
@@ -87,19 +84,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                     print("Successfullly found \(venues.count) venues.")
                     self.venues = venues
                     
+                    self.updateAnnotations()
+                    
                 case let .Failure(error):
                     print("Error fetching venues: \(error)")
                     print(error)
                 }
                 
-                // add annotations to map
-                self.mapView.removeAnnotations(self.mapView.annotations)
-                self.mapView.addAnnotations(self.venues)
+                
             }
         }
     }
-
-
+    
+    override func pressesBegan(presses: Set<UIPress>, withEvent event: UIPressesEvent?) {
+        for item in presses {
+            if item.type == .UpArrow {
+                self.view.backgroundColor = UIColor.greenColor()
+            }
+        }
+    }
 
 }
 

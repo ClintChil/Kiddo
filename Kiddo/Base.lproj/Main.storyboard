@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10109" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Z2-yJ-pjB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Z2-yJ-pjB">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10083"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--Map View Controller-->
@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <gestureRecognizers/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFU-jl-bAu">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFU-jl-bAu">
                                 <rect key="frame" x="8" y="544" width="48" height="48"/>
                                 <color key="backgroundColor" red="0.47843137250000001" green="0.92549019610000005" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -29,9 +29,6 @@
                                     <constraint firstAttribute="width" constant="48" id="tL3-OV-eJJ"/>
                                 </constraints>
                                 <state key="normal" image="Location"/>
-                                <connections>
-                                    <action selector="onLocateMeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Cd-8J-88W"/>
-                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fp5-2J-1Ky">
                                 <rect key="frame" x="544" y="544" width="48" height="48"/>
@@ -41,9 +38,6 @@
                                     <constraint firstAttribute="width" constant="48" id="sjl-wj-0jI"/>
                                 </constraints>
                                 <state key="normal" image="reload"/>
-                                <connections>
-                                    <action selector="onReloadSearchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tho-8E-Bon"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -72,20 +66,19 @@
                     </view>
                     <navigationItem key="navigationItem" id="x5d-7Y-t2P">
                         <nil key="title"/>
-                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" id="PiE-9Y-qSB">
-                            <rect key="frame" x="115.5" y="7" width="369" height="30"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="hdq-xN-NMo">
+                            <rect key="frame" x="112" y="7" width="376" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="search"/>
-                            <connections>
-                                <outlet property="delegate" destination="BYZ-38-t0r" id="aOz-mq-ho7"/>
-                            </connections>
-                        </textField>
+                            <segments>
+                                <segment title="FOOD"/>
+                                <segment title="DRINKS"/>
+                                <segment title="COFFEE"/>
+                            </segments>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" title="🍔" id="461-26-010"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="locateMeButton" destination="dFU-jl-bAu" id="bUJ-JC-qnc"/>
                         <outlet property="mapView" destination="6GJ-Re-Ltk" id="SXj-nu-Hbz"/>
-                        <outlet property="searchTextField" destination="PiE-9Y-qSB" id="sOU-Lw-YfN"/>
                         <segue destination="vGe-Iv-BlH" kind="popoverPresentation" identifier="DetailViewSegue" popoverAnchorView="6GJ-Re-Ltk" id="vKu-AM-YtO">
                             <popoverArrowDirection key="popoverArrowDirection" left="YES"/>
                         </segue>
