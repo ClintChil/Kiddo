@@ -47,19 +47,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.showsUserLocation = true
         mapView.showsCompass = true
         mapView.showsPointsOfInterest = false
-        mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: false)
+        mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: true)
     }
     
     // Show map scale while zooming map
     func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-    // FIXME: disable scale on pan map
-        mapView.showsScale = true
+        mapView.showsScale = true // FIXME: disable scale on pan map
     }
     
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         mapView.showsScale = false
-        // update search results if map view change
-        loadSearchResults("pizza")
+        loadSearchResults("pizza") // update search results if map view change
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {

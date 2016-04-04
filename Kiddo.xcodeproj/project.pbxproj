@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA1E7CCA1CB2D6B000EFB5B6 /* VenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1E7CC91CB2D6B000EFB5B6 /* VenueCell.swift */; };
+		BA1E7CCC1CB2D74800EFB5B6 /* VenueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1E7CCB1CB2D74800EFB5B6 /* VenueTableViewController.swift */; };
 		BA2725EC1C752C890096ACBE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2725EB1C752C890096ACBE /* MapViewController.swift */; };
 		BA2725EE1C752C890096ACBE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2725ED1C752C890096ACBE /* SearchViewController.swift */; };
 		BA2725F11C752C890096ACBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA2725EF1C752C890096ACBE /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA1E7CC91CB2D6B000EFB5B6 /* VenueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueCell.swift; sourceTree = "<group>"; };
+		BA1E7CCB1CB2D74800EFB5B6 /* VenueTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueTableViewController.swift; sourceTree = "<group>"; };
 		BA2725E71C752C890096ACBE /* Kiddo tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kiddo tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA2725EB1C752C890096ACBE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		BA2725ED1C752C890096ACBE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 			children = (
 				BA48DF571C6D721900215F22 /* MapViewController.swift */,
 				BAC2414D1C73DC04001B8DED /* DetailViewController.swift */,
+				BA1E7CC91CB2D6B000EFB5B6 /* VenueCell.swift */,
+				BA1E7CCB1CB2D74800EFB5B6 /* VenueTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -286,7 +292,9 @@
 				BA48DF5D1C6D744200215F22 /* FoursquareAPI.swift in Sources */,
 				BA48DF581C6D721900215F22 /* MapViewController.swift in Sources */,
 				BA48DF461C6D718900215F22 /* AppDelegate.swift in Sources */,
+				BA1E7CCA1CB2D6B000EFB5B6 /* VenueCell.swift in Sources */,
 				BAC2414E1C73DC04001B8DED /* DetailViewController.swift in Sources */,
+				BA1E7CCC1CB2D74800EFB5B6 /* VenueTableViewController.swift in Sources */,
 				BA48DF621C6D753100215F22 /* VenueStore.swift in Sources */,
 				BA48DF601C6D74F900215F22 /* Venue.swift in Sources */,
 			);
@@ -471,6 +479,7 @@
 				BA2725F61C752C890096ACBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BA48DF3D1C6D718900215F22 /* Build configuration list for PBXProject "Kiddo" */ = {
 			isa = XCConfigurationList;
