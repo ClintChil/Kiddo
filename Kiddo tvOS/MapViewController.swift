@@ -76,7 +76,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     private func loadSearchResults(query: String) {
-        store.fetchNearbyVenues(lat: (locationManager.location?.coordinate.latitude)!, long: (locationManager.location?.coordinate.longitude)!, query: query) { (venuesResult) -> Void in
+        store.searchNearbyVenues(lat: (locationManager.location?.coordinate.latitude)!, long: (locationManager.location?.coordinate.longitude)!, query: query) { (venuesResult) -> Void in
             NSOperationQueue.mainQueue().addOperationWithBlock {
                 switch venuesResult {
                     

@@ -30,6 +30,7 @@
 		BA48DF621C6D753100215F22 /* VenueStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA48DF611C6D753100215F22 /* VenueStore.swift */; };
 		BA9222161C6EA37B006E34B3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9222151C6EA37B006E34B3 /* MapKit.framework */; };
 		BA9222191C6EBC88006E34B3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9222181C6EBC88006E34B3 /* CoreLocation.framework */; };
+		BAB6C5BF1CBDD38B0069265E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB6C5BE1CBDD38B0069265E /* Parser.swift */; };
 		BAC2414E1C73DC04001B8DED /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC2414D1C73DC04001B8DED /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		BA48DF611C6D753100215F22 /* VenueStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueStore.swift; sourceTree = "<group>"; };
 		BA9222151C6EA37B006E34B3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BA9222181C6EBC88006E34B3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BAB6C5BE1CBDD38B0069265E /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		BAC2414D1C73DC04001B8DED /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				BA48DF5C1C6D744200215F22 /* FoursquareAPI.swift */,
+				BAB6C5BE1CBDD38B0069265E /* Parser.swift */,
 				BA48DF611C6D753100215F22 /* VenueStore.swift */,
 				BA48DF5F1C6D74F900215F22 /* Venue.swift */,
 			);
@@ -294,6 +297,7 @@
 				BA48DF461C6D718900215F22 /* AppDelegate.swift in Sources */,
 				BA1E7CCA1CB2D6B000EFB5B6 /* VenueCell.swift in Sources */,
 				BAC2414E1C73DC04001B8DED /* DetailViewController.swift in Sources */,
+				BAB6C5BF1CBDD38B0069265E /* Parser.swift in Sources */,
 				BA1E7CCC1CB2D74800EFB5B6 /* VenueTableViewController.swift in Sources */,
 				BA48DF621C6D753100215F22 /* VenueStore.swift in Sources */,
 				BA48DF601C6D74F900215F22 /* Venue.swift in Sources */,

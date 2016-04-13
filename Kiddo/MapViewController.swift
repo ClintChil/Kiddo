@@ -30,11 +30,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         customizeMapView()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true);
+        // FIXME: hack to test
+        loadSearchResults("drinks")
+    }
+    
     // MARK: - CLLocationManager Delegate
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("didUpdateLocations")
-        loadSearchResults("pizza")
+//        loadSearchResults("pizza")
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
@@ -57,7 +63,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         mapView.showsScale = false
-        loadSearchResults("pizza") // update search results if map view change
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
@@ -94,23 +99,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // MARK: - Helper Methods
     
     private func loadSearchResults(query: String) {
-        store.fetchNearbyVenues(lat: mapView.region.center.latitude, long: mapView.region.center.longitude, query: query) { (venuesResult) -> Void in
+        store.exploreNearbyVenues(lat: mapView.region.center.latitude, long: mapView.region.center.longitude, query: query) { (venuesResult) -> Void in
             NSOperationQueue.mainQueue().addOperationWithBlock {
                 switch venuesResult {
                     
                 case let .Success(venues):
                     print("Successfullly found \(venues.count) venues.")
                     self.venues = venues
-                    
-                    // FIXME: don't annotate map on load search method
-                    // add annotations to map
-                    self.mapView.removeAnnotations(self.mapView.annotations)
-                    self.mapView.addAnnotations(self.venues)
-                    
                 case let .Failure(error):
+                    self.venues = []
                     print("Error fetching venues: \(error)")
-                    print(error)
                 }
+                self.mapView.removeAnnotations(self.mapView.annotations)
+                self.mapView.addAnnotations(self.venues)
             }
         }
     }

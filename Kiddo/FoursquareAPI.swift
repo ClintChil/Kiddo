@@ -1,7 +1,5 @@
 import MapKit
 
-typealias JSONDictionary = [String: AnyObject]
-
 enum Method: String {
     case SearchVenues = "venues/search"
     case ExploreVenues = "venues/explore"
@@ -17,11 +15,11 @@ enum FourSquareError: ErrorType {
 }
 
 struct FourSquareAPI {
-    // 🔑 intentionally left in repo for ease of use & demonstration purposes
     private static let baseURLString = "https://api.foursquare.com/v2/"
+    private static let versionOfAPI = "20160215"
+    // 🔑 intentionally left in repo for ease of use & demonstration purposes
     private static let clientID = "KC1V3HJV3AORNIIH4VXQM42NA4WYZOLAA5GXVZSJIGRCUN1Q"
     private static let clientSecret = "KON3QATMIHYOYZXI4IJPGCIZUVQACVSLH0S3RZYPIJYID5OX"
-    private static let versionOfAPI = "20160215"
     
     private static func fourSquareURL(method method: Method, parameters: [String:String]?) -> NSURL {
         
@@ -50,26 +48,69 @@ struct FourSquareAPI {
         return components.URL!
     }
     
+    // FIXME: NSURL method is messy
+    static func exploreVenuesURL(lat lat: Double, long: Double, query: String) -> NSURL {
+        let coordinateString = "\(lat),\(long)"
+        return fourSquareURL(method: .ExploreVenues, parameters: ["ll": coordinateString, "section": query, "openNow": "1", "sortByDistance": "1"])
+    }
+    
     static func searchVenuesURL(lat lat: Double, long: Double, query: String) -> NSURL {
         let coordinateString = "\(lat),\(long)"
         return fourSquareURL(method: .SearchVenues, parameters: ["ll": coordinateString, "query": query])
     }
     
-    static func exploreVenuesURL(lat lat: Double, long: Double, query: String) -> NSURL {
-        let coordinateString = "\(lat),\(long)"
-        return fourSquareURL(method: .ExploreVenues, parameters: ["ll": coordinateString, "section": query, "openNow": "1", "sortByDistance": "1"])
+    static func derp(data: NSData) -> VenuesResult {
+        do {
+            let jsonObject: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: [])
+            // FIXME: do throws?
+            guard let
+                jsonDictionary = jsonObject as? [NSObject:AnyObject],
+                response = jsonDictionary["response"] as? JSONDictionary,
+                groups = response["groups"] as? [JSONDictionary],
+                recommendedGroup = groups[0] as? JSONDictionary,
+                items = recommendedGroup["items"] as? [JSONDictionary] else {
+                    
+                    // The JSON structure doesn't match our expectations
+                    return .Failure(FourSquareError.InvalidJSONData)
+            }
+            var finalVenues = [Venue]()
+            for itemJSON in items {
+                let venueJSON = itemJSON["venue"] as? JSONDictionary
+                if let venue = venueFromJSONObject(venueJSON!) {
+                    finalVenues.append(venue)
+                }
+            }
+            
+            
+            for venueJSON in venuesArray {
+                if let venue = venueFromJSONObject(venueJSON) {
+                    finalVenues.append(venue)
+                }
+            }
+            
+            if finalVenues.count == 0 && venuesArray.count > 0 {
+                // We weren't able to parse any of the venues
+                return .Failure(FourSquareError.InvalidJSONData)
+            }
+            
+            return .Success(finalVenues)
+        }
+            // FIXME: throw error instead?
+        catch let error {
+            return .Failure(error)
+        }
     }
     
     static func venuesFromJSONData(data: NSData) -> VenuesResult {
         do {
             let jsonObject: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: [])
             guard let
-                jsonDictionary = jsonObject as? JSONDictionary,
+                jsonDictionary = jsonObject as? [NSObject:AnyObject],
                 venues = jsonDictionary["response"] as? JSONDictionary,
                 venuesArray = venues["venues"] as? [JSONDictionary] else {
                     
-                    // The JSON structure doesn't match our expectations
-                    return .Failure(FourSquareError.InvalidJSONData)
+                // The JSON structure doesn't match our expectations
+                return .Failure(FourSquareError.InvalidJSONData)
             }
             
             var finalVenues = [Venue]()
@@ -83,6 +124,7 @@ struct FourSquareAPI {
                 // We weren't able to parse any of the venues
                 return .Failure(FourSquareError.InvalidJSONData)
             }
+            
             return .Success(finalVenues)
         }
         // FIXME: throw error instead?
@@ -96,6 +138,7 @@ struct FourSquareAPI {
             id = json["id"] as? String,
             name = json["name"] as? String,
             contact = json["contact"] as? JSONDictionary,
+            phone = contact["phone"] as? String,
             formattedPhone = contact["formattedPhone"] as? String,
             locationDict = json["location"] as? JSONDictionary,
             lat = locationDict["lat"] as? Double,
@@ -104,6 +147,7 @@ struct FourSquareAPI {
                 // Don't have enough information to construct a Venue
                 return nil
         }
-        return Venue(id: id, name: name, phone: formattedPhone, coordinate: CLLocationCoordinate2DMake(lat, long))
+        // FIXME: Coord2DMake is not very clean
+        return Venue(id: id, name: name, phone: phone, phoneWithFormat: formattedPhone, coordinate: CLLocationCoordinate2DMake(lat, long))
     }   
 }
