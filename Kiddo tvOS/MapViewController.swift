@@ -44,6 +44,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     private func customizeMapView() {
         mapView.showsUserLocation = true
         mapView.showsPointsOfInterest = false
+        mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: true)
     }
     
     private func updateAnnotations() {

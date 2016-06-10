@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Z2-yJ-pjB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Z2-yJ-pjB">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -30,7 +30,7 @@
                                 </constraints>
                                 <state key="normal" image="Location"/>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fp5-2J-1Ky">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fp5-2J-1Ky">
                                 <rect key="frame" x="544" y="544" width="48" height="48"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -38,6 +38,9 @@
                                     <constraint firstAttribute="width" constant="48" id="sjl-wj-0jI"/>
                                 </constraints>
                                 <state key="normal" image="reload"/>
+                                <connections>
+                                    <action selector="onReloadButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KzD-8n-tAy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -64,19 +67,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="x5d-7Y-t2P">
-                        <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="hdq-xN-NMo">
-                            <rect key="frame" x="112" y="7" width="376" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="FOOD"/>
-                                <segment title="DRINKS"/>
-                                <segment title="COFFEE"/>
-                            </segments>
-                        </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title="🍔" id="461-26-010"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="x5d-7Y-t2P"/>
                     <connections>
                         <outlet property="mapView" destination="6GJ-Re-Ltk" id="SXj-nu-Hbz"/>
                         <segue destination="vGe-Iv-BlH" kind="popoverPresentation" identifier="DetailViewSegue" popoverAnchorView="6GJ-Re-Ltk" id="vKu-AM-YtO">
@@ -86,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1806" y="406"/>
+            <point key="canvasLocation" x="1816" y="406"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="aQK-jc-KGF">

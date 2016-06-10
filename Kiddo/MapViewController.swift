@@ -41,13 +41,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         print(error)
     }
     
+    @IBAction func onReloadButtonPressed(sender: AnyObject) {
+        loadSearchResults("pizza")
+    }
+    
+    func updateMapRegion() {
+        let mapRegion = MKCoordinateRegion(center: self.mapView.userLocation.coordinate, span: MKCoordinateSpanMake(0.35, 0.35))
+        self.mapView.setRegion(mapRegion, animated: true)
+        
+    }
     // MARK: - MapView
     
     private func customizeMapView() {
         mapView.showsUserLocation = true
         mapView.showsCompass = true
         mapView.showsPointsOfInterest = false
-        mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: false)
+        mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: true)
     }
     
     // Show map scale while zooming map
@@ -58,8 +67,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         mapView.showsScale = false
-        // update search results if map view change
-        loadSearchResults("pizza")
+//        // update search results if map view change
+//        loadSearchResults("pizza")
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
